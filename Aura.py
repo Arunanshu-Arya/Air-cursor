@@ -51,7 +51,6 @@ today = date.today()
 r = sr.Recognizer()
 keyboard = Controller()
 engine = pyttsx3.init('sapi5')
-engine = pyttsx3.init()
 voices = engine.getProperty('voices')
 engine.setProperty('voice', voices[1].id)
 
@@ -338,7 +337,7 @@ while True:
         voice_data = record_audio()
 
     #process voice_data
-    if 'aura' in voice_data:
+    if 'aura' in voice_data.lower():
         try:
             #Handle sys.exit()
             respond(voice_data)
